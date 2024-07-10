@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{.user}}</title>
+<link rel="stylesheet" href="style/layout.css" type="text/css" media="all" />
+<link rel="stylesheet" href="style/create.css" type="text/css" media="all" />
+</head>
+<body>
+<div class="form">
+<div>
+<label for="Title">Title</label>
+<input type="text" name="" id="Title" value="" />
+</div>
+<div>
+<label for="Description">Description</label>
+<input type="text" name="Description" id="Description" value="" />
+<div class="">
+<label for="Link">Link</label>
+<input type="url" name="Link" id="Link" value="" />
+</div>
+<div class="">
+<label for="imgUrl">image Url</label>
+<input type="text" name="imgUrl" id="imgUrl" value="" />
+</div>
+<button class="btn" id="add">ADD</button>
+</div>
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+eruda.init();
+</script>
+<script src="lib/logout.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

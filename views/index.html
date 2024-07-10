@@ -1,0 +1,11 @@
+{{define "index"}}
+<main>
+  <div hx-get="/display"
+    hx-trigger="every 2s"
+    hx-swap="morph:innerHTML"
+    class="books">
+
+  </div>
+</main>
+
+{{end}}

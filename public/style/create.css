@@ -1,0 +1,12 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  background: #353535;
+  padding: 1em;
+  width: auto;
+  max-width: 80vw;
+  color: #fff;
+}
+.form div{
+  flex-direction: column;
+}

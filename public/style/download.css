@@ -1,0 +1,66 @@
+.download-card {
+  color: #fff;
+  width: 100%;
+  background: #212121;
+  height: auto;
+  display: flex;
+  flex-direction: column; /* Changed to column layout */
+  align-items: center; /* Center content horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.download-card .flex-container {
+  display: flex;
+  flex-direction: row; /* Ensure image and text are in a row */
+  align-items: center; /* Center vertically */
+}
+
+.download-card .book-cover {
+  width: 40%;
+  padding: 1em;
+  overflow: hidden;
+  height: auto;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.details {
+  padding: 1em;
+  text-align: left; /* Align text to the left */
+}
+
+.book-cover img {
+  width: 100%;
+  height: auto; /* Allow image height to adjust */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.Title {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.download {
+  padding: 1em;
+  text-align: center; /* Align button to the center */
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  font-size: 1.2em;
+  background: linear-gradient(45deg, #2979ff, #00c853);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
