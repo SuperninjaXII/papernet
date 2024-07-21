@@ -1,14 +1,14 @@
 {{range .Books}}
 <div class="book" hx-get="/download/{{.Model.ID}}" hx-trigger="click" hx-target="main">
   <!-- Image with alt text -->
-  <img class="book-cover" src='{{ .Image }}' alt='{{ .Title }} book cover' />
+  <div class="book-cover">
 
-<!-- Book information -->
-<div class="book-details">
-  <h3>{{ .Title }}</h3>
-  <p>
-    {{ .Description }}
-  </p>
-</div>
+    <img class="book-cover-img" src='{{ .Image }}' alt='{{ .Title }} book cover' />
+  </div>
+
+  <!-- Book information -->
+  <div class="book-details">
+    <h3>{{ .Title }}</h3>
+  </div>
 </div>
 {{end}}

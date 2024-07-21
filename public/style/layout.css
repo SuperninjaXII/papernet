@@ -1,5 +1,6 @@
 /* Base font size for easier scaling */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("./variables.css");
 
 /* Global styles */
 html {
@@ -15,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  background: #121212;
+  background: var(--primary);
 }
 
 /* Brand styles */
@@ -27,21 +28,43 @@ p {
 }
 
 /* Header styles */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   line-height: 1.2;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.17em; }
-h4 { font-size: 1em; }
-h5 { font-size: 0.83em; }
-h6 { font-size: 0.67em; }
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}
 
 /* Button styles */
 .btn {
@@ -51,14 +74,13 @@ h6 { font-size: 0.67em; }
   text-decoration: none;
   font-weight: bold;
   color: #fff;
-  background-color: #3f8cff;
-  border: 2px solid #3f8cff;
+  background-color: var(--complementary);
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-  background-color: #2971ff;
-  border-color: #2971ff;
+  background-color: var(--tertiary);
+  border-color: var(--secondary);
 }
 
 .btn:focus {
@@ -76,4 +98,12 @@ main {
   margin-top: 8vh;
   max-width: 100vw;
   min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.books {
+  background: var(--primary);
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
 }

@@ -1,9 +1,7 @@
 {{define "index"}}
 <main>
-  <div hx-get="/display"
-    hx-trigger="every 2s"
-    hx-swap="morph:innerHTML"
-    class="books">
+  <div hx-get="/display" hx-trigger="trigger-event" hx-swap="morph:innerHTML" hx-push-url="true" class="books">
+
 
   </div>
 </main>

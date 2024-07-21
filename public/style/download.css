@@ -1,41 +1,57 @@
+@import url("./variables.css");
+
 .download-card {
+  --download-card-width: 97svw;
+  --download-card-height: 50svh;
   color: #fff;
-  width: 100%;
-  background: #212121;
+  width: var(--download-card-width);
+  background-color: var(--secondary);
   height: auto;
   display: flex;
-  flex-direction: column; /* Changed to column layout */
-  align-items: center; /* Center content horizontally */
+  flex-direction: column;
+  /* Changed to column layout */
+  align-items: center;
+  /* Center content horizontally */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   overflow: hidden;
+  margin-top: 5svh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .download-card .flex-container {
   display: flex;
-  flex-direction: row; /* Ensure image and text are in a row */
-  align-items: center; /* Center vertically */
+  flex-direction: column;
+  /* Ensure image and text are in a row */
+  /* Center vertically */
 }
 
-.download-card .book-cover {
-  width: 40%;
-  padding: 1em;
+.download-card .Book-cover {
+  width: var(--download-card-width);
   overflow: hidden;
-  height: auto;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
+  height: 40svh;
 }
 
 .details {
   padding: 1em;
-  text-align: left; /* Align text to the left */
+  /* Align text to the left */
 }
 
-.book-cover img {
-  width: 100%;
-  height: auto; /* Allow image height to adjust */
+.details h1 {
+  font-size: 1.6rem;
+}
+
+.details p {
+  font-size: .9rem;
+  font-style: italic;
+}
+
+.Book-cover img {
+  width: var(--download-card-width);
+  height: auto;
+  /* Allow image height to adjust */
   object-fit: cover;
-  border-radius: 12px;
 }
 
 .Title {
@@ -45,16 +61,15 @@
 
 .download {
   padding: 1em;
-  text-align: center; /* Align button to the center */
+  text-align: center;
+  /* Align button to the center */
 }
 
 .download-btn {
   display: inline-block;
   padding: 0.8em 1.5em;
   font-size: 1.2em;
-  background: linear-gradient(45deg, #2979ff, #00c853);
-  color: #fff;
-  border: none;
+  background: var(--complementary);
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -62,5 +77,4 @@
 
 .download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

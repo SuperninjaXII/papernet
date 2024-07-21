@@ -1,24 +1,43 @@
+@import url("./variables.css");
+
 .book {
+  --book-width: 40svw;
+  --book-height: 26svh;
   display: flex;
-  flex-direction: row;
-  background: #252525;
-  color: #fff;
+  flex-direction: column;
+  width: var(--book-width);
+  height: var(--book-height);
+  background: var(--secondary);
+  color: var(--text);
   border-radius: 8pt;
-  margin: 1em;
-  box-shadow: 1px 1px 1px 0.5em #101010;
+  margin-left: 3svw;
+  margin-right: 3svw;
+  margin-top: 4svh;
 }
 
 .book-cover {
-  width: 20vw;
-  height: auto;
+  width: var(--book-width);
+  height: calc(var(--book-height)/1.1);
+  overflow: hidden;
   border-radius: 4pt;
 }
 
-.book-details {
-  padding: 12px;
-  overflow: hidden;
+.book-cover-img {
+  width: auto;
+  height: auto;
 }
 
-.book h3 {
-  color: white;
+.book-details {
+  overflow: hidden;
+  margin-left: 4svw;
+}
+
+.book-details h3 {
+  font-size: 1.1rem;
+}
+
+.book-details p {
+  font-size: .7rem;
+  color: var(--dark);
+  font-style: italic;
 }

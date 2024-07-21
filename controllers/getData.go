@@ -1,9 +1,10 @@
 package controllers
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"search/config"
 	"search/models"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func GetAllBooks(c *fiber.Ctx) error {
