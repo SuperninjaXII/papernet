@@ -6,6 +6,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Routes(app *fiber.App) {
-	app.Get("/", controllers.Home)
+func Admin(app *fiber.App) {
+	app.Post("/admin/create", controllers.Create)
 }
