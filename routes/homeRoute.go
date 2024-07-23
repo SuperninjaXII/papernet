@@ -8,4 +8,5 @@ import (
 
 func Routes(app *fiber.App) {
 	app.Get("/", controllers.Home)
+	app.Get("/books", controllers.DisplayAllBooks)
 }

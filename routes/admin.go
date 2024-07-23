@@ -7,5 +7,6 @@ import (
 )
 
 func Admin(app *fiber.App) {
+	app.Get("admin/AllData", controllers.DisplayAllBooksJson)
 	app.Post("/admin/create", controllers.Create)
 }
