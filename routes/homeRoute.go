@@ -9,6 +9,6 @@ import (
 func Routes(app *fiber.App) {
 	app.Get("/", controllers.Home)
 	app.Get("/books", controllers.GetAllBooks)
-	app.Get("/book/:id", controllers.GetAllBooks)
+	app.Get("/book/:id", controllers.GetBookByID)
 	app.Get("/search", controllers.SearchBooks)
 }

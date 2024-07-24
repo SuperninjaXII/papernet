@@ -7,48 +7,32 @@ import (
 	"papernet/model"
 )
 
-func DisplayAllBooks(c *fiber.Ctx) error {
-	db := config.DB
+// Get all books
+func GetAllBooks(c *fiber.Ctx) error {
 	var books []model.Book
-	result := db.Find(&books)
-	if result.Error != nil {
-		// Log the error
-		log.Println("Error fetching books:", result.Error)
-		// Return a meaningful response with status code 500
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": result.Error.Error()})
+	if err := config.DB.Find(&books).Error; err != nil {
+		log.Println("error fetching books:", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "error fetching books"})
 	}
-
-	// Log the fetched books
-
-	// Render the template with the fetched books
-	return c.Render("book", fiber.Map{
-		"Books": books,
-	})
+	return c.Status(fiber.StatusOK).JSON(books)
 }
 
-func DisplayAllBooksJson(c *fiber.Ctx) error {
-	db := config.DB
-	var books []model.Book
-	result := db.Find(&books)
+// Search books by title or description
 
-	if result.Error != nil {
-		// Log the error
-		log.Println("Error fetching books:", result.Error)
-		// Return a meaningful response with status code 500
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": "Unable to fetch books",
-		})
+func SearchBooks(c *fiber.Ctx) error {
+	query := c.Query("q")
+	if query == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "query parameter is required"})
 	}
 
-	// Log the fetched books
-	log.Println("Fetched books:", books)
-
-	// Return the books as JSON response
-	return c.JSON(fiber.Map{
-		"books": books,
-	})
+	var books []model.Book
+	err := config.DB.Where("title LIKE ? OR description LIKE ?", "%"+query+"%", "%"+query+"%").Find(&books).Error
+	if err != nil {
+		log.Println("error searching books:", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Internal server error"})
+	}
+	return c.Status(fiber.StatusOK).JSON(books)
 }
-
 func GetBookByID(c *fiber.Ctx) error {
 	db := config.DB
 	id := c.Params("id")
@@ -60,3 +44,4 @@ func GetBookByID(c *fiber.Ctx) error {
 	}
 	return c.JSON(book)
 }
+
