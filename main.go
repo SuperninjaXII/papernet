@@ -19,7 +19,7 @@ func main() {
 			Views: engine,
 		},
 	)
-
+	app.Static("/", "public")
 	routes.Routes(app)
 	routes.Admin(app)
 	app.Listen(":3000")

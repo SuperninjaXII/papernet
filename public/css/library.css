@@ -1,0 +1,45 @@
+@import url("variables.css");
+
+body {
+  background: var(--bg);
+}
+
+.books {
+  display: flex;
+  flex-direction: row;
+  width: 200svw;
+  height: 200svw;
+  overflow-x: auto;
+  overflow-y: hidden; /* Ensures that only horizontal scrolling is enabled */
+  scroll-snap-type: x mandatory; /* Optional: for smooth snapping of items */
+}
+
+.book {
+  background: var(--bg2);
+  width: 50svw;
+  height: 30svh;
+  margin: auto 1em;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px hsla(2, 0%, 78%, 0.2);
+  scroll-snap-align: start; /* Optional: for smooth snapping of items */
+}
+
+.book .img {
+  min-width: 50vw;
+  height: 25svh;
+  background: var(--bg3);
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%; /* Ensures the image fits within its container */
+}
+
+.book .title {
+  color: var(--light2);
+  font-family: habara, sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: auto;
+}

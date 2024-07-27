@@ -1,0 +1,55 @@
+let searchInput = document.querySelector(".search-input")
+let searchBtn = document.querySelector('.search-btn')
+
+
+let wasBtnClicked = false
+
+  
+interaction1=() => {
+    searchBtn.style.display='flex'
+    let tl1 =gsap.timeline()
+    tl1.to(searchInput,{
+      width:"70svw"
+    })
+    tl1.to(searchBtn,{
+      y:2,
+      rotation:"3deg",
+      x:5,
+    })
+    
+}
+interaction2=()=>{
+  let tl2 = gsap.timeline()
+  tl2.to(searchBtn,{
+    scale:0.6
+  })
+  tl2.to(searchBtn,{
+    borderRadius:"50%"
+  })
+
+}
+interaction2Rev=()=>{
+  let tl2rev =gsap.timeline()
+  tl2rev.to(searchBtn,{
+    scale:1
+  })
+  tl2rev.to(searchBtn,{
+    borderRadius:0
+  })
+}
+checkBtnState=()=>{
+  if (wasBtnClicked==false) {
+    interaction2()
+    wasBtnClicked=true
+  } else if (wasBtnClicked=true) {
+    interaction1()
+    wasBtnClicked=false
+  } 
+}
+searchInputEvent=()=>{
+  interaction1()
+  interaction2Rev()
+  
+}
+  searchInput.addEventListener("click",searchInputEvent)
+searchBtn.addEventListener("click",checkBtnState)

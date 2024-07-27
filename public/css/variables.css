@@ -1,0 +1,13 @@
+  @font-face {
+  font-family: habara;
+  src: url("./Harabara.ttf");
+  
+}
+:root{
+  --bg:hsla(0, 0%, 7%, 1);
+  --bg2: hsla(235, 15%, 42%, 1);
+  --bg3:hsla(230, 15%, 25%, 0.7);
+  --light:hsla(235, 0%, 100%, 1);
+  --light2:hsla(235, 0%, 90%, 1);
+  --light3:hsla(235, 0%, 80%, 1);
+}
