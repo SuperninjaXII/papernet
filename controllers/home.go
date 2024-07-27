@@ -2,12 +2,9 @@ package controllers
 
 import (
 	"github.com/gofiber/fiber/v2"
-<<<<<<< HEAD
-=======
 	"log"
 	"papernet/config"
 	"papernet/model"
->>>>>>> f140a57f55ba3de68dbabbbf92182ffc77f0b6dc
 )
 
 func Home(c *fiber.Ctx) error {
