@@ -1,6 +1,6 @@
 let searchInput = document.querySelector(".search-input")
 let searchBtn = document.querySelector('.search-btn')
-
+let searchResult =document.querySelector("#search-result")
 
 let wasBtnClicked = false
 
@@ -53,3 +53,29 @@ searchInputEvent=()=>{
 }
   searchInput.addEventListener("click",searchInputEvent)
 searchBtn.addEventListener("click",checkBtnState)
+
+getSuggestion = () => {
+  fetch(`/result?q=${searchInput.value}`, {
+    method: 'POST',
+  })
+  .then(response => {
+    const contentType = response.headers.get('content-type');
+
+    if (contentType.includes('application/json')) {
+      return response.json().then(data => {
+        console.log('JSON data:', JSON.stringify(data));
+      });
+    } else if (contentType.includes('text/html')) {
+      return response.text().then(text => {
+        console.log('HTML data:', text);
+        searchResult.innerHTML=""
+        searchResult.innerHTML=`${text}`
+      });
+    } else {
+      throw new Error('Unsupported content type: ' + contentType);
+    }
+  })
+  .catch(error => console.error('Error:', error));
+}
+searchInput.addEventListener("input",getSuggestion)
+

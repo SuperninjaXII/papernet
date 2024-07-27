@@ -43,3 +43,8 @@ body {
   font-size: 1.5rem;
   margin: auto;
 }
+#search-result{
+  background: #fff;
+  width:40svw;
+  height:40svh;
+}
