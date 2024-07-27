@@ -68,6 +68,7 @@ getSuggestion = () => {
     } else if (contentType.includes('text/html')) {
       return response.text().then(text => {
         console.log('HTML data:', text);
+        searchResult.style.display="flex"
         searchResult.innerHTML=""
         searchResult.innerHTML=`${text}`
       });
