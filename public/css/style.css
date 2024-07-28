@@ -137,15 +137,29 @@ main {
   backdrop-filter: blur(50px);
 }
 
-#search-result {
+
+#suggestions {
   position: fixed;
-  display: none;
+  top: 4svh;
+  display: flex;
   flex-direction: column;
-  width: 70svw;
-  height: 20svh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  left: 15svw;
-  right: 15svw;
-  background: #121212;
+  background: hsla(0, 0%, 0%, 1);
+  border-radius: .5em;
+  width: 0svw;
+  height: auto;
+  max-height: 20svh;
+  padding: .1em;
+  overflow-y: auto;
+  transition: all 0.4s;
+}
+
+#suggestions li {
+  display: none;
+  font-size: .7em;
+  background: hsla(225, 15%, 31%, 1);
+  margin-bottom: .4em;
+  padding: .3em;
+  border-radius: .8em;
+  list-style: none;
+  color: #fff;
 }
