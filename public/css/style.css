@@ -157,9 +157,14 @@ main {
   display: none;
   font-size: .7em;
   background: hsla(225, 15%, 31%, 1);
-  margin-bottom: .4em;
-  padding: .3em;
-  border-radius: .8em;
+  margin-bottom: .1em;
+  padding: .4em;
+  border-radius: .2em;
   list-style: none;
   color: #fff;
+}
+
+li:hover {
+  background: #ffd;
+  color: #000;
 }

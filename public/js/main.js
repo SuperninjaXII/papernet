@@ -21,10 +21,11 @@ interaction1=() => {
 interaction2=()=>{
   let tl2 = gsap.timeline()
   tl2.to(searchBtn,{
-    scale:0.6
+    scale:0.9
   })
   tl2.to(searchBtn,{
-    borderRadius:"50%"
+  borderTopRightRadius: "2rem",
+  borderBottomRightRadius: "2rem",
   })
 
 }
@@ -93,7 +94,7 @@ const suggestionsPopAnimation = () => {
     width: "70svw",
     height: "auto",
     duration: 0.31,
-    borderRadius: "1em",
+    borderRadius: ".5em",
     background: "#121212",
     x: 5
   });
@@ -107,7 +108,7 @@ const resetSuggestionTimeout = () => {
   clearTimeout(suggestionTimeout);
   suggestionTimeout = setTimeout(() => {
     searchResult.style.display = "none";
-  }, 5000); // hide suggestions after 5 seconds
+  }, 3000); // hide suggestions after 5 seconds
 };
 
 searchInput.addEventListener("input", getSuggestion);
