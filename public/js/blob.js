@@ -1,4 +1,4 @@
-
+blob=()=>{
 let tl = gsap.timeline();
 
 tl.to(".blob", {
@@ -71,3 +71,5 @@ tl.to(".blob", {
   opacity: 0.2,
   filter: "blur(10px)"
 });
+}
+window.addEventListener("load",blob)

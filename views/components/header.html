@@ -1,20 +1,21 @@
+{{define "header"}}
 <section class="books">
-  {{range .Result}}
-  <div class="book" hx-get="/download/{{.Model.ID}}" hx-target="main" hx-trigger="click">
+  <div class="book">
     <div class="img">
       <img class="" src="css/KOLORO_1718565912041.jpg">
     </div>
     <div class="details">
-      <h1 class="title">{{.Title}}</h1>
+      <h1 class="title">Hello</h1>
       <p class="date">
         today
       </p>
-      <p class="description expand-content" data-word-limit="7">
-        {{.Description}}
+      <p class="description">
+        a book about greeting
+        alot of a lot of people .
       </p>
       <div class="tags">
         <div class="tag">
-          {{.Cartegory1}}
+          social
         </div>
         <div class="tag">
           +2 more
@@ -23,5 +24,5 @@
     </div>
 
   </div>
-  {{end}}
 </section>
+{{end}}

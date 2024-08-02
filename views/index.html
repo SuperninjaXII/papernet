@@ -1,71 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Custom Styles -->
+{{define "search"}}
+<main>
+  <div class="blob">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>HTML</title>
-
-  <!-- HTML -->
-
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-  <div class="sticky-logo">
-    <div>
-
-    </div>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
   </div>
+  <div id="suggestions">
+
+  </div>
+  <section class="search-container">
+    <h1>search</h1>
+    <div class="search">
+      <input class="search-input" type="search" name="search" placeholder="Search ...">
+      <div class="search-btn">
+        search
+      </div>
+    </div>
+
+
+
+
+  </section>
+  <section class="recommendation">
+    <h2>recommendations</h2>
+    <div>
+      <p class="text">The Go programming Book</p>
+      <p class="text">The JavaScript programming Book</p>
+    </div>
+  </section>
   <main>
-    <div class="blob">
-
-    </div>
-    <div id="suggestions">
-
-    </div>
-    <section class="search-container">
-      <h1>search</h1>
-      <div class="search">
-        <input class="search-input" type="search" name="search" placeholder="Search ...">
-        <div class="search-btn">
-          search
-        </div>
-      </div>
-
-
-
-
-    </section>
-    <section class="recommendation">
-      <h2>recommendations</h2>
-      <div>
-        <p class="text">The Go programming Book</p>
-        <p class="text">The JavaScript programming Book</p>
-      </div>
-    </section>
-
-
-  </main>
-
-  <!-- Project -->
-  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-  <script>eruda.init();</script>
-
-  <script src="cdn_modules/htmx@2.0.1/htmx.min.js"></script>
-  <script src="cdn_modules/gsap@3.12.5/gsap.min.js"></script>
-  <script type="" src="js/blob.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
-</html>
+    {{end}}

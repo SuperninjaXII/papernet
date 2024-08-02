@@ -43,7 +43,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100svw;
-  height: 80vh;
+  height: auto;
 }
 
 .search-container h1 {

@@ -83,6 +83,7 @@ const getSuggestion = () => {
 };
 
 const suggestionsPopAnimation = () => {
+ searchResult.style.display="flex"
   let li = document.querySelectorAll('#suggestions li');
   gsap.fromTo("#suggestions", {
     width: "10svw",
@@ -112,3 +113,27 @@ const resetSuggestionTimeout = () => {
 };
 
 searchInput.addEventListener("input", getSuggestion);
+
+NextPage=()=>{
+  let main = document.querySelector("main");
+fetch(`/searchresults?q=${searchInput.value}`, {
+    method: 'POST',
+  })
+    .then(response => {
+      const contentType = response.headers.get('content-type');
+      if (contentType.includes('application/json')) {
+        return response.json().then(data => {
+          console.log('JSON data:', JSON.stringify(data));
+        });
+      } else if (contentType.includes('text/html')) {
+        return response.text().then(text => {
+          main.innerHTML = `${text}`;
+          
+        });
+      } else {
+        throw new Error('Unsupported content type: ' + contentType);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+};
+searchBtn.addEventListener("click",NextPage)

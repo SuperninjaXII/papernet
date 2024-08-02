@@ -1,50 +1,85 @@
 @import url("variables.css");
 
-body {
-  background: var(--bg);
-}
 
 .books {
   display: flex;
-  flex-direction: row;
-  width: 200svw;
-  height: 200svw;
-  overflow-x: auto;
-  overflow-y: hidden; /* Ensures that only horizontal scrolling is enabled */
-  scroll-snap-type: x mandatory; /* Optional: for smooth snapping of items */
+  flex-direction: column;
+  max-width: 100svw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Ensures that only horizontal scrolling is enabled */
+  scroll-snap-type: x mandatory;
+  /* Optional: for smooth snapping of items */
 }
 
 .book {
-  background: var(--bg2);
-  width: 50svw;
-  height: 30svh;
-  margin: auto 1em;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 2px 2px 6px hsla(2, 0%, 78%, 0.2);
-  scroll-snap-align: start; /* Optional: for smooth snapping of items */
+  --book-card-width: 100svw;
+  --book-card-height: 40svh;
+  display: flex;
+  flex-direction: row;
+  width: var(--book-card-width);
+  height: var(--book-card-height);
+  margin-bottom: 1em;
+  scroll-snap-align: start;
+  /* Optional: for smooth snapping of items */
+}
+
+.book:active {
+  background: hsla(235, 1%, 20%, 1);
 }
 
 .book .img {
-  min-width: 50vw;
-  height: 25svh;
-  background: var(--bg3);
+  width: 30svw;
+  height: 30svh;
   overflow: hidden;
 }
 
 .img img {
-  width: 100%; /* Ensures the image fits within its container */
+  width: 100%;
+  aspect-ratio: 5/7;
+  /* Ensures the image fits within its container */
 }
 
-.book .title {
-  color: var(--light2);
-  font-family: habara, sans-serif;
-  text-align: center;
-  font-size: 1.5rem;
-  margin: auto;
+.book .details {
+  height: calc(var(--book-card-height)/2);
+  color: #fff;
+  padding-left: .5em;
+  margin-top: 0;
+  font-family: habara;
+  letter-spacing: 1px;
 }
-#search-result{
-  background: #fff;
-  width:40svw;
-  height:40svh;
+
+.details .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.details .date {
+  font-size: .6em;
+  font-weight: 100;
+  color: hsla(235, 1%, 60%, 1);
+}
+
+.details .description {
+  color: hsla(235, 1%, 75%, 1);
+  font-size: .8em;
+}
+
+.details .tags {
+  display: flex;
+
+}
+
+.details .tags .tag {
+  background: hsla(185, 71%, 35%, 1);
+  border-radius: .2em;
+  padding: .3em;
+  margin: .2em;
+}
+
+.details .tag:last-child {
+  background: hsla(235, 7%, 21%, 1);
 }
