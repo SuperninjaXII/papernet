@@ -114,26 +114,31 @@ const resetSuggestionTimeout = () => {
 
 searchInput.addEventListener("input", getSuggestion);
 
-NextPage=()=>{
-  let main = document.querySelector("main");
-fetch(`/searchresults?q=${searchInput.value}`, {
-    method: 'POST',
-  })
+const NextPage = () => {
+    let main = document.querySelector("main");
+    fetch(`/searchresults?q=${searchInput.value}`, {
+        method: 'POST',
+    })
     .then(response => {
-      const contentType = response.headers.get('content-type');
-      if (contentType.includes('application/json')) {
-        return response.json().then(data => {
-          console.log('JSON data:', JSON.stringify(data));
-        });
-      } else if (contentType.includes('text/html')) {
-        return response.text().then(text => {
-          main.innerHTML = `${text}`;
-          
-        });
-      } else {
-        throw new Error('Unsupported content type: ' + contentType);
-      }
+        const contentType = response.headers.get('content-type');
+        if (contentType.includes('application/json')) {
+            return response.json().then(data => {
+                console.log('JSON data:', JSON.stringify(data));
+            });
+        } else if (contentType.includes('text/html')) {
+            return response.text().then(text => {
+                main.innerHTML = `${text}`;
+            });
+        } else {
+            throw new Error('Unsupported content type: ' + contentType);
+        }
+    })
+  .then(() => {
+        // Push new state to the history
+        const newUrl = `/search?q=${searchQuery}`;
+        history.pushState({ searchQuery: searchQuery }, '', newUrl);
     })
     .catch(error => console.error('Error:', error));
 };
-searchBtn.addEventListener("click",NextPage)
+
+searchBtn.addEventListener("click", NextPage);

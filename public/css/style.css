@@ -8,6 +8,11 @@ body {
   color: hsla(0, 0%, 70%, 1);
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .sticky-logo {
   --width: 40svw;
   --height: .6svh;
@@ -140,14 +145,14 @@ main {
 
 #suggestions {
   position: fixed;
-  top: 4svh;
+  top: 2svh;
   display: flex;
   flex-direction: column;
   background: hsla(0, 0%, 0%, 1);
   border-radius: .5em;
   width: 0svw;
   height: auto;
-  max-height: 20svh;
+  max-height: 14svh;
   padding: .1em;
   overflow-y: auto;
   transition: all 0.4s;

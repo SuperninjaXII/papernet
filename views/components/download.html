@@ -1,30 +1,49 @@
-<section>
-  <div class="first">
-    <div class="book-cover">
-      <!-- Book cover image can be added here -->
-      <img src="/css/KOLORO_1718565912041.jpg" alt="">
-    </div>
-    <div class="book-details-container">
-      <div class="book-details">
-        <h1 class="title">{{.book.Title}}</h1>
-        <p class="writer">By Joseph</p>
-        <p class="time">19 October 1994</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download {{.book.Title}}</title>
+  <link rel="stylesheet" href="/css/download.css">
+</head>
+
+<body>
+  <section>
+    <div class="first">
+      <div class="book-cover">
+        <!-- Book cover image can be added here -->
+        <img src="{{.book.Image}}" alt="{{.book.Title}}">
+      </div>
+      <div class="book-details-container">
+        <div class="book-details">
+          <h1 class="title">{{.book.Title}}</h1>
+
+          <p class="time">{{.book.Model.CreatedAt}}</p>
+        </div>
+
+        <div class="tags">
+          <div class="tag">{{.book.Cartegory1}}</div>
+          <div class="tag">{{.book.Cartegory2}}</div>
+
+          <div class="tag">+more</div>
+
+        </div>
       </div>
 
-      <div class="tags">
-        <div class="tag">{{.book.Cartegory1}}</div>
-        <div class="tag">{{.book.Cartegory2}}</div>
-
-        <div class="tag">+more</div>
-
-      </div>
     </div>
+    <div class="second">
+      <p class="description">
+        {{.book.Description}}
+      </p>
+    </div>
+    <button class="download-btn"><a href="{{.book.Link}}"> Download</a></button>
+  </section>
 
-  </div>
-  <div class="second">
-    <p class="description">
-      {{.book.Description}}
-    </p>
-  </div>
-  <button class="download-btn"> Download</button>
-</section>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script>
+
+
+</html>

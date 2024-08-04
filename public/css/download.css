@@ -19,9 +19,15 @@ section {
   height: auto;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .first {
   display: flex;
-
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .first .title {

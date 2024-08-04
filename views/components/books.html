@@ -1,13 +1,14 @@
 <section class="books">
   {{range .Result}}
-  <div class="book" hx-get="/download/{{.Model.ID}}" hx-target="main" hx-trigger="click">
+  <div class="book">
     <div class="img">
-      <img class="" src="css/KOLORO_1718565912041.jpg">
+      <img class="" src="{{.Image}}" alt="{{.Title}}">
     </div>
     <div class="details">
-      <h1 class="title">{{.Title}}</h1>
+      <h1 class="title"><a href="/download/{{.Model.ID}}">{{.Title}}</a></h1>
+
       <p class="date">
-        today
+        {{.Model.CreatedAt}}
       </p>
       <p class="description expand-content" data-word-limit="7">
         {{.Description}}
