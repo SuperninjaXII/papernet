@@ -1,26 +1,41 @@
 package main
 
 import (
+	"net/http"
+	"search/config"
 	"search/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 )
-import "search/config"
+
+// Exported function for Vercel
+func HandleRequest(w http.ResponseWriter, r *http.Request) {
+	// Initialize the Fiber engine
+	engine := html.New("./views", ".html")
+
+	// Create a new Fiber app
+	app := fiber.New(fiber.Config{
+		Views: engine, // Set the template engine
+	})
+
+	// Serve static files
+	app.Static("/", "./public")
+
+	// Define routes
+	routes.Routes(app)
+
+	// Handle HTTP requests with Fiber
+	app.Listener = http.NewServeMux()
+	app.Listener.ServeHTTP(w, r)
+}
 
 func init() {
+	// Initialize the database connection
 	config.Database()
 }
 
 func main() {
-	engine := html.New("./views", ".html")
-	app := fiber.New(
-		fiber.Config{
-			Views: engine,
-		},
-	)
-	app.Static("/", "./public")
-	routes.Routes(app)
-
-	app.Listen(":3000")
+	// main can remain empty or used for additional setup if necessary
 }
+
