@@ -2,43 +2,26 @@ package main
 
 import (
 	"log"
-	"search/config"
-	"search/routes"
+	"net/http"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/template/html/v2"
 )
 
-func init() {
-	// Initialize the database connection
-	err := config.Database()
-	if err != nil {
-		log.Fatalf("Error initializing the database: %v", err)
-	}
-}
+// Handler is the entry point for Vercel to call
+func Handler(w http.ResponseWriter, r *http.Request) {
+	// Create a new Fiber app
+	app := fiber.New()
 
-func FiberHandler(c *fiber.Ctx) error {
-	// Initialize the view engine for HTML templates
-	engine := html.New("./views", ".html")
-
-	// Create a new Fiber app with the views engine
-	app := fiber.New(fiber.Config{
-		Views: engine,
+	// Define a simple route
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello from Fiber on Vercel!")
 	})
 
-	// Serve static files from the public directory
-	app.Static("/", "./public")
+	// Convert the Fiber app into an HTTP handler
+	http.Handle("/", app)
 
-	// Set up routes for your application
-	routes.Routes(app)
-
-	// Return the server response to Vercel (using the handler)
-	return app.Listen(":3000")
+	// Call the app handler
+	if err := app.Listen(":3000"); err != nil {
+		log.Fatal("Error starting server:", err)
+	}
 }
-
-// This function is required for Vercel serverless deployment
-func Handler(c *fiber.Ctx) error {
-	// Call the FiberHandler function to handle the request
-	return FiberHandler(c)
-}
-
