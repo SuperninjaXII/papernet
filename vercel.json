@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "app.go",
+      "src": "./app.go",
       "use": "@vercel/go"
     }
   ]
