@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"search/config"
@@ -10,11 +11,11 @@ import (
 	"github.com/gofiber/template/html/v2"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
-	// Log to stdout (will be visible in Vercel logs)
+func main() {
+	// Log the start of the application
 	log.Println("Starting Fiber app...")
 
-	// Initialize the Fiber engine
+	// Initialize the Fiber engine with templates
 	engine := html.New("./views", ".html")
 
 	// Create a new Fiber app
@@ -31,9 +32,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	// Log the fact that we are listening on a port
 	log.Println("App is listening on :3000")
 
-	// Handle HTTP requests with Fiber
-	app.Listener = http.NewServeMux()
-	app.Listener.ServeHTTP(w, r)
+	// Start the Fiber app (automatically listens and serves)
+	if err := app.Listen(":3000"); err != nil {
+		log.Fatal("Error starting server:", err)
+	}
 }
 
 func init() {
