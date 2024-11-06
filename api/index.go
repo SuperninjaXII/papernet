@@ -1,7 +1,6 @@
-package handler
+package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gofiber/fiber/v2"
@@ -17,11 +16,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return c.SendString("Hello from Fiber on Vercel!")
 	})
 
-	// Convert the Fiber app into an HTTP handler
-	http.Handle("/", app)
-
-	// Call the app handler
-	if err := app.Listen(":3000"); err != nil {
-		log.Fatal("Error starting server:", err)
-	}
+	// Fiber app's handler that implements http.Handler
+	handler := app
+	// Use the Fiber app's handler (which is an HTTP handler)
+	handler.ServeHTTP(w, r)
 }
