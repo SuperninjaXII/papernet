@@ -1,8 +1,7 @@
-// /api/index.go
-
 package handler
 
 import (
+	"log"
 	"net/http"
 	"search/config"
 	"search/routes"
@@ -11,10 +10,12 @@ import (
 	"github.com/gofiber/template/html/v2"
 )
 
-// Handler function expected by Vercel
 func Handler(w http.ResponseWriter, r *http.Request) {
+	// Log to stdout (will be visible in Vercel logs)
+	log.Println("Starting Fiber app...")
+
 	// Initialize the Fiber engine
-	engine := html.New("./../views", ".html")
+	engine := html.New("./views", ".html")
 
 	// Create a new Fiber app
 	app := fiber.New(fiber.Config{
@@ -22,10 +23,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	})
 
 	// Serve static files
-	app.Static("/", "./../public")
+	app.Static("/", "./public")
 
 	// Define routes
 	routes.Routes(app)
+
+	// Log the fact that we are listening on a port
+	log.Println("App is listening on :3000")
 
 	// Handle HTTP requests with Fiber
 	app.Listener = http.NewServeMux()
@@ -34,5 +38,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 func init() {
 	// Initialize the database before running the app
+	log.Println("Initializing database...")
 	config.Database()
 }
