@@ -1,0 +1,175 @@
+@import url("./variables.css");
+
+body {
+  font-size: 15pt;
+  margin: 0;
+  font-family: habara;
+  background-color: var(--bg);
+  color: hsla(0, 0%, 70%, 1);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.sticky-logo {
+  --width: 40svw;
+  --height: .6svh;
+  display: flex;
+  position: fixed;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 2pt;
+  overflow: hidden;
+  top: 0;
+  left: calc((100svw - var(--width)) / 2);
+}
+
+.sticky-logo div {
+  width: calc(var(--width)/3);
+  height: var(--height);
+}
+
+.sticky-logo :first-child {
+  background: #FB0202;
+
+}
+
+.sticky-logo :nth-child(2) {
+  background: #0BFF6A;
+}
+
+.sticky-logo :last-child {
+  background: #FC00FF;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100svw;
+  height: auto;
+}
+
+.search-container h1 {
+  text-align: center;
+  font-size: 2.7rem;
+  color: hsla(0, 0%, 92%, 1);
+}
+
+.search-container {
+  margin: auto;
+}
+
+.search {
+  display: flex;
+
+}
+
+.search-input {
+  width: 49svw;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  padding: 0.5svw;
+  border-radius: 5pt;
+  margin-left: auto;
+  margin-right: auto;
+  background: hsla(235, 15%, 42%, 1);
+  color: #fff;
+  box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.61);
+}
+
+.search-container .search-btn {
+  display: none;
+  overflow: hidden;
+  color: hsla(0, 0%, 87%, 1);
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  background: hsla(209, 98%, 50%, 1);
+  width: 16svw;
+  padding: .9rem;
+  box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.62);
+  align-content: center;
+  justify-content: center;
+}
+
+.recommendation {
+  width: 100svw;
+  height: auto;
+}
+
+.recommendation h2 {
+  text-align: center;
+}
+
+.recommendation div {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90svw;
+  height: 29svh;
+  background: hsla(230, 15%, 25%, 0.7);
+  border-radius: 5%;
+}
+
+.recommendation div .text {
+  color: hsla(0, 0%, 70%, 1);
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.recommendation div :first-child {
+  font-size: 1.4rem;
+  color: hsla(0, 0%, 80%, 1);
+}
+
+.blob {
+  position: fixed;
+  z-index: -1;
+  background: conic-gradient(#DECCFF, green, blue);
+  width: 40vh;
+  height: 30vh;
+  border-top-left-radius: 60%;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 30%;
+  border-top-right-radius: 70%;
+  filter: blur(10px);
+  /* Add this line to blur the blob */
+  backdrop-filter: blur(50px);
+}
+
+
+#suggestions {
+  position: fixed;
+  top: 2svh;
+  display: flex;
+  flex-direction: column;
+  background: hsla(0, 0%, 0%, 1);
+  border-radius: .5em;
+  width: 0svw;
+  height: auto;
+  max-height: 14svh;
+  padding: .1em;
+  overflow-y: auto;
+  transition: all 0.4s;
+}
+
+#suggestions li {
+  display: none;
+  font-size: .7em;
+  background: hsla(225, 15%, 31%, 1);
+  margin-bottom: .1em;
+  padding: .4em;
+  border-radius: .2em;
+  list-style: none;
+  color: #fff;
+}
+
+li:hover {
+  background: #ffd;
+  color: #000;
+}

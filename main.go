@@ -1,12 +1,12 @@
 package main
 
 import (
-	"search/routes"
+	"papernet/config"
+	"papernet/routes"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html/v2"
 )
-import "search/config"
 
 func init() {
 	config.Database()
@@ -19,8 +19,8 @@ func main() {
 			Views: engine,
 		},
 	)
-	app.Static("/", "./public")
+	app.Static("/", "public")
 	routes.Routes(app)
-
+	routes.Admin(app)
 	app.Listen(":3000")
 }
