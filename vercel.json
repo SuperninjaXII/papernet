@@ -1,0 +1,8 @@
+{
+  "builds": [
+    {
+      "src": "./api/index.go",
+      "use": "@vercel/go"
+    }
+  ]
+}

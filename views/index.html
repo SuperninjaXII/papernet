@@ -2,30 +2,32 @@
 {{define "search"}}
 <main>
   <div class="blob">
+    <div hx-get="/display" hx-trigger="trigger-event" hx-swap="morph:innerHTML" hx-push-url="true" class="books">
 
-  </div>
-  <div id="suggestions">
 
-  </div>
-  <section class="search-container">
-    <h1>search</h1>
-    <div class="search">
-      <input class="search-input" type="search" name="search" placeholder="Search ...">
-      <div class="search-btn">
-        search
+    </div>
+    <div id="suggestions">
+
+    </div>
+    <section class="search-container">
+      <h1>search</h1>
+      <div class="search">
+        <input class="search-input" type="search" name="search" placeholder="Search ...">
+        <div class="search-btn">
+          search
+        </div>
       </div>
-    </div>
 
 
 
 
-  </section>
-  <section class="recommendation">
-    <h2>recommendations</h2>
-    <div>
-      <p class="text">The Go programming Book</p>
-      <p class="text">The JavaScript programming Book</p>
-    </div>
-  </section>
-  <main>
-    {{end}}
+    </section>
+    <section class="recommendation">
+      <h2>recommendations</h2>
+      <div>
+        <p class="text">The Go programming Book</p>
+        <p class="text">The JavaScript programming Book</p>
+      </div>
+    </section>
+    <main>
+      {{end}}
