@@ -1,0 +1,57 @@
+@import url("./variables.css");
+
+body {
+  display: flex;
+  margin: 0;
+  background: var(--bg);
+  color: var(--light)
+}
+
+.form {
+  background: var(--bg2);
+  width: 90svw;
+  margin: 2svw;
+  padding: .4rem;
+  border-radius: 2rem;
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.input-group input {
+  border: none;
+  border-radius: 1.4rem;
+  padding: .5rem;
+  outline: none;
+  width: 75svw;
+  height: 5svh;
+  color: var(--light);
+  background: var(--bg3);
+  margin-top: 1rem;
+}
+
+.input-group label {
+  font-size: 1.2rem;
+}
+
+.input-group textarea {
+  width: 80svw;
+  height: 30svh;
+  padding: .5rem;
+
+  background: var(--bg3);
+  color: var(--light);
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
