@@ -10,6 +10,9 @@ import (
 // home page hoe page rendering
 func Home(c *fiber.Ctx) error {
 	return c.Render("layouts/mainLayout", fiber.Map{})
+} // home page hoe page rendering
+func Admin(c *fiber.Ctx) error {
+	return c.Render("admin", fiber.Map{})
 }
 
 // search page rendering
