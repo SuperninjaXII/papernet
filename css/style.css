@@ -55,3 +55,14 @@ body {
   border-radius: 1rem;
   margin-top: 1rem;
 }
+
+.add-btn {
+  width: 80svw;
+  height: 6svh;
+  margin: 1rem;
+  border: none;
+  font-size: 1.2rem;
+  background: var(--accent);
+  color: var(--light);
+  border-radius: 1rem;
+}
