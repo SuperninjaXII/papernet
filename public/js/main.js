@@ -39,7 +39,7 @@ checkBtnState = () => {
   if (wasBtnClicked == false) {
     interaction2();
     wasBtnClicked = true;
-  } else if (wasBtnClicked = true) {
+  } else if ((wasBtnClicked = true)) {
     interaction1();
     wasBtnClicked = false;
   }
@@ -81,20 +81,24 @@ const getSuggestion = () => {
 const suggestionsPopAnimation = () => {
   searchResult.style.display = "flex";
   let li = document.querySelectorAll("#suggestions li");
-  gsap.fromTo("#suggestions", {
-    width: "10svw",
-    height: "10svh",
-    x: 4,
-    borderRadius: "50svw",
-    background: "pink",
-  }, {
-    width: "70svw",
-    height: "auto",
-    duration: 0.31,
-    borderRadius: ".5em",
-    background: "#121212",
-    x: 5,
-  });
+  gsap.fromTo(
+    "#suggestions",
+    {
+      width: "10svw",
+      height: "10svh",
+      x: 4,
+      borderRadius: "50svw",
+      background: "pink",
+    },
+    {
+      width: "70svw",
+      height: "auto",
+      duration: 0.31,
+      borderRadius: ".5em",
+      background: "#121212",
+      x: 5,
+    },
+  );
 
   li.forEach((element) => {
     element.style.display = "block";
@@ -110,8 +114,10 @@ const resetSuggestionTimeout = () => {
 
 searchInput.addEventListener("input", getSuggestion);
 
+
 const NextPage = () => {
-  let main = document.querySelector("main");
+  const main = document.querySelector("main");
+
   fetch(`/searchresults?q=${searchInput.value}`, {
     method: "POST",
   })
@@ -120,19 +126,21 @@ const NextPage = () => {
       if (contentType.includes("application/json")) {
         return response.json().then((data) => {
           console.log("JSON data:", JSON.stringify(data));
+          // Optionally, update content if JSON response
         });
       } else if (contentType.includes("text/html")) {
         return response.text().then((text) => {
-          main.innerHTML = `${text}`;
+          main.innerHTML = text;
         });
       } else {
-        throw new Error("Unsupported content type: " + contentType);
+        throw new Error("Unsupported content type");
       }
     })
     .then(() => {
       // Push new state to the history
+      const searchQuery = searchInput.value;
       const newUrl = `/search?q=${searchQuery}`;
-      history.pushState({ searchQuery: searchQuery }, "", newUrl);
+      history.pushState({ searchQuery }, "", newUrl);
     })
     .catch((error) => console.error("Error:", error));
 };
