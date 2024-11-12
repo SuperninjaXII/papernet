@@ -23,6 +23,7 @@ func Create(c *fiber.Ctx) error {
 			Image:       book.Image,
 			Cartegory1:  book.Cartegory1,
 			Cartegory2:  book.Cartegory2,
+
 		}
 		config.DB.Create(&newBook)
 		log.Println("books created")
