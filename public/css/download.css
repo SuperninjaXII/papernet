@@ -38,7 +38,7 @@ a {
 
 .first .time {
   padding-left: 1rem;
-  font-size: 1rem
+  font-size: 1rem;
 }
 
 .tags {
@@ -48,9 +48,9 @@ a {
 
 .tags .tag {
   background: hsla(185, 71%, 35%, 1);
-  border-radius: .2em;
-  padding: .6em;
-  margin: .2em;
+  border-radius: 0.2em;
+  padding: 0.6em;
+  margin: 0.2em;
 }
 
 .tag:nth-child(2) {
@@ -60,13 +60,12 @@ a {
 
 .tag:last-child {
   background: hsla(235, 7%, 21%, 1);
-
 }
 
 .first .writer {
   font-size: 1rem;
   padding: 1rem;
-  ;
+
   font-style: italic;
   margin-top: 0;
   color: hsla(235, 0%, 71%, 1);
@@ -74,16 +73,14 @@ a {
 
 .second {
   width: 100svw;
-  ;
 }
 
 .second .description {
   font-style: italic;
-  letter-spacing: .01rem;
+  letter-spacing: 0.01rem;
   font-weight: 200;
-  padding: .3rem;
+  padding: 0.3rem;
   color: hsla(235, 0%, 91%, 1);
-
 }
 
 .book-cover {
@@ -100,7 +97,6 @@ a {
 
 .book-details-container {
   width: 55svw;
-
 }
 
 .book-details {
