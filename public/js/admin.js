@@ -10,10 +10,10 @@ const addBook = () => {
     {
       title: title.value,
       description: description.value,
-      imageLink: imageLink.value,
-      download: download.value,
-      category1: category1.value,
-      category2: category2.value,
+      image: imageLink.value,
+      link: download.value,
+      cartegory1: category1.value,
+      cartegory2: category2.value,
     },
   ]);
 
@@ -27,12 +27,6 @@ const addBook = () => {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
-      title.innerHTML = "";
-      description.innerHTML = "";
-      imageLink.innerHTML = "";
-      download.innerHTML = "";
-      category1.innerHTML = "";
-      category2.innerHTML = "";
       alert("book added");
     })
     .catch((error) => {

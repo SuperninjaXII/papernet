@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -30,18 +30,23 @@
         </div>
       </div>
       <div class="second">
-        <p class="description">
-          {{.book.Description}}
-        </p>
+        <p class="description">{{.book.Description}}</p>
       </div>
       <button class="download-btn">
         <a href="{{.book.Link}}"> Download</a>
       </button>
     </section>
+    <section
+      class="related"
+      hx-trigger="load"
+      hx-get="/related/{{.book.Cartegory1}}"
+      hx-swap="innerHTML"
+    ></section>
   </body>
 
   <script src="//cdn.jsdelivr.net/npm/eruda"></script>
   <script>
     eruda.init();
   </script>
+  <script src="/lib/htmx.js"></script>
 </html>

@@ -9,5 +9,5 @@ type Book struct {
 	Image       string `json:"image"`
 	Link        string `json:"link"`
 	Cartegory1  string `json:"cartegory1"`
-	Cartegory2  string `json:"Cartegory2"`
+	Cartegory2  string `json:"cartegory2"`
 }

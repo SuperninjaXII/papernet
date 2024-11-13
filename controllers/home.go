@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"log"
 	"papernet/config"
 	"papernet/model"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 // home page hoe page rendering
@@ -70,5 +71,23 @@ func SearchResult(c *fiber.Ctx) error {
 	}
 	return c.Render("components/searchResults", fiber.Map{
 		"Result": books,
+	})
+}
+func GetBookByCartegoryBooks(c *fiber.Ctx) error {
+	db := config.DB
+	tag := c.Params("tag")
+	var books []model.Book
+
+	result := db.Where("cartegory1 = ? OR cartegory2 = ?", tag, tag).Find(&books)
+
+	if result.Error != nil {
+		log.Println("Database query error:", result.Error) // Log the error
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Internal server error"})
+	}
+	if result.RowsAffected == 0 {
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "No books found in this category"})
+	}
+	return c.Render("components/searchResults", fiber.Map{
+		"Result": result,
 	})
 }

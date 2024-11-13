@@ -39,9 +39,20 @@ func GetBookByID(c *fiber.Ctx) error {
 	var book model.Book
 	result := db.First(&book, id)
 	if result.Error != nil {
-		// Handle the error, log it, and return a meaningful response
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "Book not found"})
 	}
 	return c.JSON(book)
 }
+func GetBookByCartegory(c *fiber.Ctx) error {
+    db := config.DB
+    tag := c.Params("tag")
+    var books []model.Book
 
+    result := db.Where("cartegory1 = ? OR cartegory2 = ?", tag, tag).Find(&books)
+    
+    if result.Error != nil {
+        return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "No books found in this category"})
+    }
+
+    return c.JSON(books)
+}
