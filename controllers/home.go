@@ -87,7 +87,7 @@ func GetBookByCartegoryBooks(c *fiber.Ctx) error {
 	if result.RowsAffected == 0 {
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "No books found in this category"})
 	}
-	return c.Render("components/searchResults", fiber.Map{
-		"Result": result,
+	return c.Render("components/related", fiber.Map{
+		"Result": books,
 	})
 }

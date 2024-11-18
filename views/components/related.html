@@ -1,0 +1,11 @@
+{{ if .Result }}
+<!--some comment-->
+{{range .Result}}
+<div>
+  <p>{{.Title}}</p>
+</div>
+{{end}}
+<!--some comment-->
+{{else}}
+<p>no related</p>
+{{end}}
