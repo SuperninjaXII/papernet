@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Papernet</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/library.css" />
 
-    <script defer src="js/blob.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Papernet</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/library.css" />
 
-  <body hx-push-url="true" hx-boost="true">
-    {{template "search"}}
+  <script defer src="js/blob.js"></script>
+</head>
 
-    <script src="lib/htmx.js"></script>
+<body hx-push-url="true" hx-boost="true">
+  {{template "header"}}
 
-    <script src="js/main.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        function injectStyles() {
-          const style = document.createElement("style");
-          style.textContent = `
+
+  {{template "search"}}
+
+  <script src="lib/htmx.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function injectStyles() {
+        const style = document.createElement("style");
+        style.textContent = `
                 .hidden-content {
                     display: none;
                 }
@@ -32,54 +36,55 @@
                     position: relative;
                 }
             `;
-          document.head.appendChild(style);
-        }
+        document.head.appendChild(style);
+      }
 
-        function ExpandableContent() {
-          const containers = document.querySelectorAll(".expand-content");
+      function ExpandableContent() {
+        const containers = document.querySelectorAll(".expand-content");
 
-          containers.forEach((container) => {
-            const wordLimit = parseInt(container.dataset.wordLimit);
-            if (wordLimit) {
-              handleWordLimit(container, wordLimit);
-            }
-          });
-        }
-
-        function handleWordLimit(container, wordLimit) {
-          const text = container.textContent;
-          const words = text.split(/\s+/);
-          if (words.length > wordLimit) {
-            const visibleText = words.slice(0, wordLimit).join(" ");
-            const hiddenText = words.slice(wordLimit).join(" ");
-
-            const visibleContent = document.createElement("span");
-            visibleContent.textContent = visibleText;
-
-            const ellipsis = document.createElement("span");
-            ellipsis.className = "ellipsis";
-            ellipsis.textContent = "...";
-
-            const hiddenContent = document.createElement("span");
-            hiddenContent.className = "hidden-content";
-            hiddenContent.textContent = hiddenText;
-
-            container.innerHTML = "";
-            container.appendChild(visibleContent);
-            container.appendChild(ellipsis);
-            container.appendChild(hiddenContent);
+        containers.forEach((container) => {
+          const wordLimit = parseInt(container.dataset.wordLimit);
+          if (wordLimit) {
+            handleWordLimit(container, wordLimit);
           }
+        });
+      }
+
+      function handleWordLimit(container, wordLimit) {
+        const text = container.textContent;
+        const words = text.split(/\s+/);
+        if (words.length > wordLimit) {
+          const visibleText = words.slice(0, wordLimit).join(" ");
+          const hiddenText = words.slice(wordLimit).join(" ");
+
+          const visibleContent = document.createElement("span");
+          visibleContent.textContent = visibleText;
+
+          const ellipsis = document.createElement("span");
+          ellipsis.className = "ellipsis";
+          ellipsis.textContent = "...";
+
+          const hiddenContent = document.createElement("span");
+          hiddenContent.className = "hidden-content";
+          hiddenContent.textContent = hiddenText;
+
+          container.innerHTML = "";
+          container.appendChild(visibleContent);
+          container.appendChild(ellipsis);
+          container.appendChild(hiddenContent);
         }
+      }
 
-        injectStyles();
-        ExpandableContent();
-      });
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    <script>
-      eruda.init();
-    </script>
+      injectStyles();
+      ExpandableContent();
+    });
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>
+    eruda.init();
+  </script>
 
-    <script src="cdn_modules/gsap@3.12.5/gsap.min.js"></script>
-  </body>
+  <script src="cdn_modules/gsap@3.12.5/gsap.min.js"></script>
+</body>
+
 </html>

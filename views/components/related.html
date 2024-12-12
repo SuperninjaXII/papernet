@@ -1,11 +1,44 @@
 {{ if .Result }}
 <!--some comment-->
-{{range .Result}}
-<div>
-  <p>{{.Title}}</p>
-</div>
-{{end}}
-<!--some comment-->
-{{else}}
-<p>no related</p>
-{{end}}
+<style>
+  .recommended {
+    width: 90svw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-evenly;
+  }
+
+  .recommended .book-card {
+    width: 7rem;
+    height: 10rem;
+    background: var(--bg2);
+    color: var(--light);
+    border-radius: 0.5rem;
+    margin: 1rem;
+  }
+
+  .book-card img {
+    width: 7rem;
+    height: 8rem;
+  }
+
+  .book-card .title {
+    text-align: center;
+  }
+</style>
+<section class="recommended">
+  {{range .Result}}
+  <div class="book-card">
+    <img
+      src="/uploads/images/{{.book.Cartegory1}}/{{.book.Image}}"
+      alt="{{.book.Title}}"
+    />
+    <h3 class="title">{{.Title}}</h3>
+  </div>
+  {{end}}
+  <!--some comment-->
+  {{else}}
+  <p>no related</p>
+  {{end}}
+</section>

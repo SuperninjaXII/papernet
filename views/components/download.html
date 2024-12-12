@@ -8,11 +8,16 @@
   </head>
 
   <body>
+    {{template "header"}}
+
     <section>
       <div class="first">
         <div class="book-cover">
           <!-- Book cover image can be added here -->
-          <img src="{{.book.Image}}" alt="{{.book.Title}}" />
+          <img
+            src="/uploads/images/{{.book.Cartegory1}}/{{.book.Image}}"
+            alt="{{.book.Title}}"
+          />
         </div>
         <div class="book-details-container">
           <div class="book-details">
@@ -33,14 +38,19 @@
         <p class="description">{{.book.Description}}</p>
       </div>
       <button class="download-btn">
-        <a href="{{.book.Link}}"> Download</a>
+        <a
+          download="{{.book.File}}"
+          href="/uploads/files/{{.book.Cartegory1}}/{{.book.File}}"
+        >
+          Download</a
+        >
       </button>
     </section>
     <section
       class="related"
       hx-trigger="load"
       hx-get="/related/{{.book.Cartegory1}}"
-      hx-swap="innerHTML"
+      hx-swap="outterHTML"
     ></section>
   </body>
 

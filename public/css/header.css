@@ -1,0 +1,25 @@
+@import url("./variables.css");
+header {
+  display: flex;
+  width: 100svw;
+  height: 8svh;
+  background-color: var(--bg);
+  color: var(--light);
+}
+header div {
+  padding: 0.2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+header div a i {
+  font-size: 1.8rem;
+}
+header .brand {
+  margin: auto;
+}
+.brand img {
+  width: 5rem;
+}
+header .brand h2 {
+  font-size: 1.2rem;
+}
