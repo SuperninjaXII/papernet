@@ -1,13 +1,19 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 type Book struct {
-	gorm.Model
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Image       string `json:"image"`
-	Link        string `json:"link"`
-	Cartegory1  string `json:"cartegory1"`
-	Cartegory2  string `json:"cartegory2"`
+	ID          string         `gorm:"primaryKey" json:"id"`
+	Title       string         `json:"title"`
+	Description string         `json:"description"`
+	Image       string         `form:"image"`
+	File        string         `form:"file"`
+	Cartegories string         `json:"Cartegories"`
+	Author      string         `json:"author"`
+	CreatedAt   time.Time      `json:"created_at"`              // Creation timestamp
+	DeletedAt   gorm.DeletedAt `gorm:"index" json:"deleted_at"` // Soft delete field
 }

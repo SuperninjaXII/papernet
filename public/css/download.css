@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-section {
+.download-section {
   display: flex;
   flex-direction: column;
 
@@ -31,9 +31,41 @@ a {
 }
 
 .first .title {
-  font-size: 2.2rem;
+  font-size: 2rem;
   padding-left: 1rem;
   margin: 0;
+}
+.title {
+  font-size: clamp(1rem, 8vw, 3rem);
+  line-height: 1.2;
+  margin: 0;
+  word-break: break-word;
+  hyphens: auto;
+
+  /* Fluid typography using CSS locks */
+  --min-font-size: 16;
+  --max-font-size: 48;
+  --min-width: 320;
+  --max-width: 1200;
+
+  /* Calculate fluid font size */
+  font-size: calc(
+    var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) *
+      (100vw - var(--min-width) * 1px) / (var(--max-width) - var(--min-width))
+  );
+}
+
+/* Additional title length-based adjustments */
+.title {
+  /* For titles longer than 50 characters */
+  &:has(> :nth-child(1):nth-last-child(n + 50)) {
+    font-size: clamp(0.875rem, 6vw, 2.5rem);
+  }
+
+  /* For titles longer than 100 characters */
+  &:has(> :nth-child(1):nth-last-child(n + 100)) {
+    font-size: clamp(0.75rem, 5vw, 2rem);
+  }
 }
 
 .first .time {
@@ -63,7 +95,7 @@ a {
 }
 
 .first .writer {
-  font-size: 1rem;
+  font-size: 0.7rem;
   padding: 1rem;
 
   font-style: italic;
@@ -78,9 +110,10 @@ a {
 .second .description {
   font-style: italic;
   letter-spacing: 0.01rem;
-  font-weight: 200;
+  font-weight: 300;
   padding: 0.3rem;
   color: hsla(235, 0%, 91%, 1);
+  margin: 1rem;
 }
 
 .book-cover {

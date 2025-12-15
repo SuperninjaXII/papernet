@@ -4,7 +4,7 @@ header {
   width: 100svw;
   height: 8svh;
   background-color: var(--bg);
-  color: var(--light);
+  color: var(--light2);
 }
 header div {
   padding: 0.2rem;

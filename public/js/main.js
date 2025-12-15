@@ -1,55 +1,40 @@
-let searchInput = document.querySelector(".search-input");
-let searchBtn = document.querySelector(".search-btn");
 let searchResult = document.querySelector("#suggestions");
 
+let searchInput = document.querySelector(".search-input");
+let searchBtn = document.querySelector(".search-btn");
 let wasBtnClicked = false;
 
-interaction1 = () => {
-  searchBtn.style.display = "flex";
-  let tl1 = gsap.timeline();
-  tl1.to(searchInput, {
-    width: "70svw",
-  });
-  tl1.to(searchBtn, {
-    y: 2,
-    rotation: "3deg",
-    x: 5,
-  });
+const interaction1 = () => {
+  searchInput.classList.add("interaction1");
+  searchBtn.classList.add("interaction1");
 };
-interaction2 = () => {
-  let tl2 = gsap.timeline();
-  tl2.to(searchBtn, {
-    scale: 0.9,
-  });
-  tl2.to(searchBtn, {
-    borderTopRightRadius: "2rem",
-    borderBottomRightRadius: "2rem",
-  });
+
+const interaction2 = () => {
+  searchBtn.classList.add("interaction2");
 };
-interaction2Rev = () => {
-  let tl2rev = gsap.timeline();
-  tl2rev.to(searchBtn, {
-    scale: 1,
-  });
-  tl2rev.to(searchBtn, {
-    borderRadius: 0,
-  });
+
+const interaction2Rev = () => {
+  searchBtn.classList.add("interaction2rev");
 };
-checkBtnState = () => {
+
+const checkBtnState = () => {
   if (wasBtnClicked == false) {
     interaction2();
     wasBtnClicked = true;
-  } else if ((wasBtnClicked = true)) {
+  } else {
     interaction1();
     wasBtnClicked = false;
   }
 };
-searchInputEvent = () => {
+
+searchBtn.addEventListener("click", checkBtnState);
+
+const searchInputEvent = () => {
   interaction1();
   interaction2Rev();
 };
+
 searchInput.addEventListener("click", searchInputEvent);
-searchBtn.addEventListener("click", checkBtnState);
 let suggestionTimeout;
 
 const getSuggestion = () => {
@@ -114,35 +99,29 @@ const resetSuggestionTimeout = () => {
 
 searchInput.addEventListener("input", getSuggestion);
 
-
 const NextPage = () => {
-  const main = document.querySelector("main");
+  const searchQuery = searchInput.value;
+  try {
+    window.location.href = `/searchbooks?q=${searchQuery}`;
+  } catch (error) {
+    alert("somethings wrong");
+  }
+};
 
-  fetch(`/searchresults?q=${searchInput.value}`, {
-    method: "POST",
-  })
-    .then((response) => {
-      const contentType = response.headers.get("content-type");
-      if (contentType.includes("application/json")) {
-        return response.json().then((data) => {
-          console.log("JSON data:", JSON.stringify(data));
-          // Optionally, update content if JSON response
-        });
-      } else if (contentType.includes("text/html")) {
-        return response.text().then((text) => {
-          main.innerHTML = text;
-        });
-      } else {
-        throw new Error("Unsupported content type");
-      }
-    })
-    .then(() => {
-      // Push new state to the history
-      const searchQuery = searchInput.value;
-      const newUrl = `/search?q=${searchQuery}`;
-      history.pushState({ searchQuery }, "", newUrl);
-    })
-    .catch((error) => console.error("Error:", error));
+const limit = () => {
+  const descriptions = document.querySelectorAll(".description");
+
+  descriptions.forEach((description) => {
+    const wordLimit =
+      parseInt(description.getAttribute("data-word-limit"), 10) || 100;
+    const fullText = description.textContent.trim();
+
+    if (fullText.length > wordLimit) {
+      const truncatedText = fullText.substring(0, wordLimit) + "...";
+      description.textContent = truncatedText;
+      console.log(truncatedText);
+    }
+  });
 };
 
 searchBtn.addEventListener("click", NextPage);

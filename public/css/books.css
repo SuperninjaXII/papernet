@@ -1,0 +1,84 @@
+@import url("./variables.css");
+
+.books {
+  display: flex;
+  flex-direction: column;
+  max-width: 100svw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Ensures that only horizontal scrolling is enabled */
+  scroll-snap-type: x mandatory;
+  /* Optional: for smooth snapping of items */
+}
+
+.book {
+  --book-card-width: 100svw;
+  --book-card-height: 40svh;
+  display: flex;
+  flex-direction: row;
+  width: var(--book-card-width);
+  height: var(--book-card-height);
+  margin-bottom: 1em;
+  scroll-snap-align: start;
+  /* Optional: for smooth snapping of items */
+}
+
+.book:active {
+  background: hsla(235, 1%, 20%, 1);
+}
+
+.book .img {
+  width: 30svw;
+  height: 30svh;
+  overflow: hidden;
+}
+
+.img img {
+  width: 30svw;
+  aspect-ratio: 5/7;
+  /* Ensures the image fits within its container */
+}
+
+.book .details {
+  max-width: 60svw;
+  height: calc(var(--book-card-height) / 2);
+  color: #fff;
+  padding-left: 0.5em;
+  margin-top: 0;
+  font-family: habara;
+  letter-spacing: 1px;
+}
+
+.details .title {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.details .date {
+  font-size: 0.6em;
+  font-weight: 200;
+  color: hsla(235, 1%, 60%, 1);
+}
+
+.details .description {
+  color: hsla(235, 1%, 75%, 1);
+  font-size: 0.8em;
+}
+
+.details .tags {
+  display: flex;
+}
+
+.details .tags .tag {
+  background: hsla(185, 71%, 35%, 1);
+  border-radius: 0.2em;
+  padding: 0.3em;
+  margin: 0.2em;
+}
+
+.details .tag:last-child {
+  background: hsla(235, 7%, 21%, 1);
+}

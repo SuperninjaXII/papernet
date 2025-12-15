@@ -1,0 +1,51 @@
+@import url("./style/variables.css");
+@media (prefers-color-scheme: dark) {
+  a {
+    color: var(--green-4);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--neutral-1) !important;
+  }
+
+  p {
+    color: var(--neutral-2) !important;
+  }
+}
+
+*,
+:root,
+body {
+  font-family: noto-sans;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+}
+
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+h1 {
+  color: var(--neutral-5);
+}
+
+p {
+  color: var(--neutral-4);
+}
+
+a {
+  color: var(--green-5);
+}

@@ -1,0 +1,8 @@
+papernet.store {
+    reverse_proxy localhost:8080
+    
+    # Set max body size for uploads (200MB)
+    limits {
+        body 200MB
+    }
+}

@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  APP_NAME: papernet
+  BUILD_DIR: build
+  MAIN: main.go
+
+tasks:
+  dev:
+    cmds:
+      - echo "starting live-reloading" && air 
+  build:
+    cmds:
+      - mkdir -p "{{.BUILD_DIR}}" && go build -o "{{.BUILD_DIR}}"/"{{.APP_NAME}}" "{{.MAIN}}"

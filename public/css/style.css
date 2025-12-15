@@ -6,11 +6,12 @@ body {
   font-family: habara;
   background-color: var(--bg);
   color: hsla(0, 0%, 70%, 1);
+  min-height: 100svh;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: var(--light);
 }
 
 .sticky-logo {
@@ -75,12 +76,11 @@ main {
   margin-left: auto;
   margin-right: auto;
   background: hsla(235, 15%, 42%, 1);
-  color: #fff;
+  color: var(--light);
   box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.61);
 }
 
 .search-container .search-btn {
-  display: none;
   overflow: hidden;
   color: hsla(0, 0%, 87%, 1);
   border-top-right-radius: 2rem;
@@ -91,38 +91,49 @@ main {
   box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.62);
   align-content: center;
   justify-content: center;
+  transform: translateX(5px) translateY(2px) rotate(3deg);
 }
-
-.recommendation {
-  width: 100svw;
-  height: auto;
-}
-
-.recommendation h2 {
-  text-align: center;
-}
-
-.recommendation div {
-  margin: auto;
+.papers-container {
+  width: 98svw;
+  margin-top: 20vh;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+.papers {
   width: 90svw;
-  height: 29svh;
-  background: hsla(230, 15%, 25%, 0.7);
-  border-radius: 5%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-evenly;
 }
 
+.papers-container h2 {
+  text-align: center;
+  color: var(--light2);
+}
+
+.paper {
+  margin: 1rem;
+  background: var(--bg2);
+  width: 35svw;
+  height: auto;
+  overflow: none;
+}
+.paper img {
+  width: 35svw;
+}
+.paper p {
+  text-align: center;
+  font-weight: 300;
+}
 .recommendation div .text {
   color: hsla(0, 0%, 70%, 1);
   font-size: 1rem;
-  font-weight: lighter;
+  font-weight: 300;
   text-align: center;
-}
-
-.recommendation div :first-child {
-  font-size: 1.4rem;
-  color: hsla(0, 0%, 80%, 1);
 }
 
 .blob {
@@ -135,7 +146,7 @@ main {
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 30%;
   border-top-right-radius: 70%;
-  filter: blur(10px);
+  filter: blur(50px);
   /* Add this line to blur the blob */
   backdrop-filter: blur(50px);
 }
@@ -155,18 +166,42 @@ main {
   transition: all 0.4s;
 }
 
-#suggestions li {
-  display: none;
-  font-size: 0.7em;
-  background: hsla(225, 15%, 31%, 1);
-  margin-bottom: 0.1em;
-  padding: 0.4em;
-  border-radius: 0.2em;
-  list-style: none;
-  color: #fff;
-}
-
 li:hover {
   background: #ffd;
   color: #000;
+}
+/* Default styles for the elements */
+.search-input {
+  transition: width 0.3s ease;
+}
+
+.search-btn {
+  transition:
+    transform 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+/* Interaction 1: Expanding the input and animating the button */
+.interaction1 .search-input {
+  width: 70svw;
+}
+
+.interaction1 .search-btn {
+  transform: translateX(5px) translateY(2px) rotate(3deg);
+}
+
+/* Interaction 2: Scaling and rounding button */
+.interaction2 .search-btn {
+  transform: scale(0.9);
+}
+
+.interaction2 .search-btn {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+/* Reverse interaction 2: Reset button scaling and border radius */
+.interaction2rev .search-btn {
+  transform: scale(1);
+  border-radius: 0;
 }

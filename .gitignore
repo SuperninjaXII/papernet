@@ -1,2 +1,7 @@
-/admin.db
-/node_modules
+admin.db
+/frontend/node_modules/
+/install/
+.env
+/public/uploads/
+/temp/
+/build/

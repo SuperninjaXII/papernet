@@ -1,0 +1,54 @@
+:root {
+  --font-xs: 7px;
+  --font-sm: 10px;
+  --font-neutral: 12px;
+  --font-md: 16px;
+  --font-lg: 24px;
+  --font-xlg: 32px;
+  --font-xxlg: 48px;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.4rem;
+  --space-md: 1.2rem;
+  --space-lg: 1.8rem;
+  --space-xlg: 2.5rem;
+
+  --black: #000;
+  --white: #fff;
+  --bg: #fffafa;
+  --bg2: #fefefa;
+
+  --text-color-1: #000;
+  --text-inverse-color-1: #fff;
+
+  --neutral-1: hsl(0, 0%, 93%);
+  --neutral-2: hsl(0, 0%, 68%);
+  --neutral-3: hsl(0, 0%, 56%);
+  --neutral-4: hsl(0, 0%, 36%);
+  --neutral-5: hsl(0, 0%, 22%);
+
+  --green-1: hsl(90, 35%, 70%);
+  --green-2: hsl(90, 60%, 60%);
+  --green-3: hsl(90, 71%, 50%);
+  --green-4: hsl(90, 80%, 45%);
+  --green-5: hsl(90, 90%, 20%);
+
+  --blue-1: hsl(224, 100%, 83%);
+  --blue-2: hsl(224, 100%, 63%);
+  --blue-3: hsl(222, 100%, 46%);
+  --blue-4: hsl(222, 100%, 28%);
+  --blue-5: hsl(220, 100%, 16%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: #000;
+    --white: #fff;
+    --bg: #121212;
+    --bg2: #212121;
+    --bg2-transparent: hsla(0, 0%, 20%, 70%);
+
+    --text-color-1: #ffffff;
+    --text-inverse-color-1: #000;
+  }
+}

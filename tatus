@@ -1,0 +1,57 @@
+[33md4fa2e9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m more ads
+[33m2473d41[m thr forgetten
+[33mc4db279[m added adsense to remaing pages
+[33m15acd38[m seo and adsense
+[33m5a7ee4c[m complete rewrite of the ui
+[33m05670c7[m test in ptod
+[33m1bedb6a[m made it look normal
+[33m405bb4f[m made the pictures look good
+[33mc66cdb6[m all the others here
+[33mf9504dd[m trying to fixed wierd image problem
+[33m583ab37[m added recommended
+[33m038e530[m added header and a lot more
+[33m0ed77e6[m fixed downloading issue
+[33m96a80bc[m prodiction begins
+[33mfdb4618[m profuction ready
+[33md31d400[m ..
+[33m9257408[m align
+[33m09025c2[m jwt_key
+[33m448d753[m addwd a changes
+[33mb6245f0[m gone back to original
+[33mb5b83a9[m changed port
+[33m7d7504a[m store
+[33mc52ea72[m traefik
+[33m3299acc[m test
+[33m658d8a4[m dc
+[33m8fd0ec1[m last straw
+[33m66c1a66[m tes
+[33m4eafc61[m hhh
+[33md5bb13e[m change alit
+[33mabb83d0[m changed again
+[33m990d961[m chamgr tye docker container a bit
+[33m02e94bb[m docker compose
+[33m9a03fcf[m added docker
+[33mf8d2008[m added certs
+[33m1cf364d[m added docker
+[33m6ba1424[m add chmod
+[33m0f29e13[m adding docker
+[33m2f33318[m change to port 80
+[33mb8707f9[m a little bit of cleaning
+[33mf3acb4e[m deleted useless stuff
+[33m58b18e5[m working usable beta 1
+[33m8af761e[m added login page
+[33m88564c9[m bugs
+[33m361199a[m Update README.md
+[33m142e4e3[m added doc
+[33m62e949b[m added jwt authentication to all /admin routes
+[33ma33588d[m added signig
+[33m838708e[m added the compare and hash
+[33macb4fe8[m added the create user route
+[33mceca178[m Update README.md
+[33m2896031[m add better install documentation
+[33m97da527[m added a build system and install system
+[33m5ddbf50[m added air a makefile and hotreload
+[33m71ebbba[m Update README.md
+[33mbe646db[m fixed the /related and added a /catergory
+[33m29f8af9[m first commit
+[33meb2c0fd[m Initial commit
